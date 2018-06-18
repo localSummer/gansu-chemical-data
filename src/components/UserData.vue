@@ -5,6 +5,7 @@
             近五年用户数增长趋势
             </span>
             <img class="title-bg" src="../assets/imgs/user-title.png" alt="">
+            <img class="title-bar" src="../assets/imgs/title-bar.png" alt="">
         </div>
         <div class="chart-wrap">
             <div class="chart"></div>
@@ -81,14 +82,19 @@
             padding-left: px2rem(30);
             letter-spacing: 1px;
             position: relative;
-            img {
+            .title-bg {
                 width: 100%;
                 height: px2rem(72);
                 position: absolute;
                 top: 0;
                 left: 0;
             }
-            .title-bg {
+            .title-bar {
+                position: absolute;
+                top: 0;
+                right: px2rem(20);
+                width: px2rem(425);
+                height: px2rem(13);
                 animation: pulse 1s linear infinite;
             }
         }

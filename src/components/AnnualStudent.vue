@@ -2,7 +2,8 @@
     <div class="annual-student">
         <div class="title">
             <span>年度学生画像</span>
-            <img src="../assets/imgs/user-title.png" alt="">
+            <img class="title-bg" src="../assets/imgs/user-title.png" alt="">
+            <img class="title-bar" src="../assets/imgs/title-bar.png" alt="">
         </div>
         <div class="chart-wrap">
             <Row type="flex" justify="center">
@@ -94,7 +95,19 @@
 
 <style scoped lang="scss">
     @import '../assets/styles/px2rem.scss';
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+        }
 
+        50% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
     .annual-student {
         margin-top: px2rem(19);
         margin-right: px2rem(30);
@@ -108,12 +121,20 @@
             letter-spacing: 1px;
             position: relative;
 
-            img {
+            .title-bg {
                 width: 100%;
                 height: px2rem(72);
                 position: absolute;
                 top: 0;
                 left: 0;
+            }
+            .title-bar {
+                position: absolute;
+                top: 0;
+                right: px2rem(20);
+                width: px2rem(425);
+                height: px2rem(13);
+                animation: pulse 1s linear infinite;
             }
         }
         .chart-wrap {
