@@ -4,7 +4,7 @@
             <span>
             近五年用户数增长趋势
             </span>
-            <img src="../assets/imgs/user-title.png" alt="">
+            <img class="title-bg" src="../assets/imgs/user-title.png" alt="">
         </div>
         <div class="chart-wrap">
             <div class="chart"></div>
@@ -57,7 +57,19 @@
 
 <style scoped lang="scss">
     @import '../assets/styles/px2rem.scss';
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+        }
 
+        50% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
     .user-data {
         margin-left: px2rem(30);
         .title {
@@ -75,6 +87,9 @@
                 position: absolute;
                 top: 0;
                 left: 0;
+            }
+            .title-bg {
+                animation: pulse 1s linear infinite;
             }
         }
         .chart-wrap {

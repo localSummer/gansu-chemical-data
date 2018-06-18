@@ -3,9 +3,9 @@ import {map} from './mapData';
 
 export const loadingConfig = {
     text: '',
-    color: '#fff',
+    color: '#a2e4f4',
     textColor: '#fff',
-    maskColor: 'rgba(0, 0, 0, 0.3)',
+    maskColor: 'rgba(0, 0, 0, 0)',
     zlevel: 0
 };
 

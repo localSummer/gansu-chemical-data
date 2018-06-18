@@ -6,8 +6,10 @@
         <div class="chart-wrap">
             <img class="side" src="../assets/imgs/side2.png" alt="">
             <div class="head">
-                <img src="../assets/imgs/game.png" alt="">
-                2017年成功举办甘肃省化工安全技能大赛等12项赛事
+                <p :style="{left: left + '%'}">
+                    <img src="../assets/imgs/game.png" alt="">
+                    2017年成功举办甘肃省化工安全技能大赛等12项赛事
+                </p>
             </div>
             <div class="chart-regional"></div>
             <div class="statistics">
@@ -37,7 +39,7 @@
                     </Col>
                 </Row>
             </div>
-            <div class="tool" v-if="data.length > 0">
+            <div class="tool animated slideInUp" v-if="data.length > 0">
                 <img src="../assets/imgs/tool-tip.png" alt="">
                 <div class="header" v-text="data[active]['name']"></div>
                 <div class="tool-content">
@@ -98,7 +100,9 @@
                     }
                 ],
                 timerOne: null,
-                timerTwo: null
+                timerTwo: null,
+                left: 100,
+                leftTimer: null
             }
         },
         methods: {
@@ -183,11 +187,19 @@
             this.getData(chartInstance);
 //            this.loopContent(chartInstance);
 //            this.loopTabs();
+            this.leftTimer = setInterval(() => {
+                if (this.left <= -50) {
+                    this.left = 100;
+                } else {
+                    this.left = this.left - 0.1;
+                }
+            }, 20);
             responseResize(chartInstance, 3.86667);
         },
         beforeDestroy() {
-            this.timerOne = null;
-            this.timerTwo = null;
+            this.timerOne && clearInterval(this.timerOne);
+            this.timerTwo && clearInterval(this.timerTwo);
+            this.leftTimer && clearInterval(this.leftTimer);
         }
     }
 </script>
@@ -221,13 +233,21 @@
                 right: 0;
             }
             .head {
-                text-align: center;
+                position: relative;
+                overflow: hidden;
                 border-bottom: 1px solid #0e4552;
                 color: #a2e4f4;
                 font-weight: bold;
+                height: px2rem(30);
                 line-height: px2rem(30);
                 font-size: px2rem(14);
                 margin: 0 px2rem(39);
+                p {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    width: px2rem(376);
+                }
                 img {
                     position: static;
                     vertical-align: middle;
