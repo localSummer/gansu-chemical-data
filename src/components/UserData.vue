@@ -93,7 +93,7 @@
                 position: absolute;
                 top: 0;
                 right: px2rem(20);
-                width: px2rem(425);
+                width: 78%;
                 height: px2rem(13);
                 animation: pulse 1s linear infinite;
             }
