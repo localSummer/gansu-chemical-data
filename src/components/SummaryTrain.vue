@@ -118,6 +118,9 @@
                     }
                 }).catch((err) => {
                     console.log(err);
+                    chartInstances.forEach(item => {
+                        item.hideLoading();
+                    });
                 });
             }
         },
