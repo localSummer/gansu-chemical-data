@@ -14,9 +14,7 @@
             <div class="chart-regional"></div>
             <div class="statistics">
                 <div class="tabs">
-                    <span :class="{activeTab: activeTab === 0}" @click="updateActiveTab(0)">HSE实训中心</span>
-                    <span :class="{activeTab: activeTab === 1}" @click="updateActiveTab(1)">化工原理装置区</span>
-                    <span :class="{activeTab: activeTab === 2}" @click="updateActiveTab(2)">理化实验室</span>
+                    <span v-for="(item, index) in tabs" :class="{activeTab: activeTab === index}" @click="updateActiveTab(index)"  v-text="item.name"></span>
                 </div>
                 <Row>
                     <Col span="8" class="tab-content">
@@ -84,16 +82,19 @@
                 city: ['酒泉市', '武威市', '兰州市', '陇南市'],
                 tabs: [
                     {
+                        name: '园区1',
                         one: 0,
                         two: 0,
                         three: 0
                     },
                     {
+                        name: '园区2',
                         one: 0,
                         two: 0,
                         three: 0
                     },
                     {
+                        name: '园区3',
                         one: 0,
                         two: 0,
                         three: 0
@@ -118,7 +119,7 @@
             loopContent(chartInstance) {
                 this.handleSelectMap(chartInstance, 'geoSelect', this.city[0]);
                 this.timerOne = setInterval(() => {
-                    if (this.active === 3) {
+                    if (this.active === (this.data.length - 1)) {
                         this.active = 0;
                         this.handleSelectMap(chartInstance, 'geoUnSelect', this.city[3]);
                         this.handleSelectMap(chartInstance, 'geoSelect', this.city[this.active]);
@@ -131,7 +132,7 @@
             },
             loopTabs() {
                 this.timerTwo = setInterval(() => {
-                    if (this.activeTab === 2) {
+                    if (this.activeTab === (this.tabs.length - 1)) {
                         this.activeTab = 0;
                     } else {
                         this.activeTab = this.activeTab + 1;
@@ -164,6 +165,7 @@
                         });
                         this.tabs = result.map(item => {
                             return {
+                                name: item.AreaName,
                                 one: item.MonthTrainHour,
                                 two: item.YearTrainHour,
                                 three: item.TotalTrainHour
