@@ -131,9 +131,9 @@
             let chartFour = this.init('.chart-four', summaryFour);
             let chartInstances = [chartOne, chartTwo, chartThree, chartFour];
             this.getData(chartInstances);
-            this.timer = setInterval(() => {
+            /*this.timer = setInterval(() => {
                 this.getData(chartInstances);
-            }, 5000);
+            }, 5000);*/
             multiResponseResize(chartInstances, 0.81667);
         },
         beforeDestroy() {
