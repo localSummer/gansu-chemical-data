@@ -84,15 +84,18 @@
                 return this.$echarts.init(chart, 'dark');
             },
             getData(chartInstances) {
-                this.isLoaded = false;
-                chartInstances.forEach(item => {
-                    item.showLoading(loadingConfig)
-                });
+                if (!this.isLoaded) {
+                    chartInstances.forEach(item => {
+                        item.showLoading(loadingConfig)
+                    });
+                }
                 this.$http.get(`api/stat/nowsummary?provinceId=1`).then((response) => {
                     if (response.data.returncode === 0) {
-                        chartInstances.forEach(item => {
-                            item.hideLoading();
-                        });
+                        if (!this.isLoaded) {
+                            chartInstances.forEach(item => {
+                                item.hideLoading();
+                            });
+                        }
                         let result = response.data.result;
                         this.tranTimes = result.TranTimes;
                         this.userNum = result.UserNum;
@@ -114,7 +117,9 @@
                         chartInstances[1].setOption(summaryTwo);
                         chartInstances[2].setOption(summaryThree);
                         chartInstances[3].setOption(summaryFour);
-                        this.isLoaded = true;
+                        if (!this.isLoaded) {
+                            this.isLoaded = true;
+                        }
                     }
                 }).catch((err) => {
                     console.log(err);
