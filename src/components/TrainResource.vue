@@ -28,19 +28,19 @@
                         chartInstance.hideLoading();
                         let result = response.data.result;
                         let count = 0;
-                        studyData.legend.data = result.map((item) => {
+                        trainData.legend.data = result.map((item) => {
                             return item.ResName;
                         });
-                        studyData.xAxis[0].data = result[0].ResYearList.map((item) => {
+                        trainData.xAxis[0].data = result[0].ResYearList.map((item) => {
                             return item.LogDate;
                         });
                         while (count < result.length) {
-                            studyData.series[count].data = result[count].ResYearList.map((item) => {
+                            trainData.series[count].data = result[count].ResYearList.map((item) => {
                                 return item.ResNum;
                             });
                             count++;
                         }
-                        chartInstance.setOption(studyData);
+                        chartInstance.setOption(trainData);
                     }
                 }).catch((err) => {
                     console.log(err);

@@ -63,10 +63,10 @@
                     if (response.data.returncode === 0) {
                         chartInstance.hideLoading();
                         let result = response.data.result;
-                        this.activeDay = result.ActiveDay;
-                        this.studyDays = result.StudyDays;
-                        this.subjectNum = result.SubjectNum;
-                        this.abilityIndex = result.AbilityIndex;
+                        this.activeDay = result.ActiveDay? result.ActiveDay: 0;
+                        this.studyDays = result.StudyDays? result.StudyDays : 0;
+                        this.subjectNum = result.SubjectNum? result.SubjectNum : 0;
+                        this.abilityIndex = result.AbilityIndex? result.AbilityIndex : 0;
                         annualStudent.radar[0].indicator = result.UserPortraits.map(item => {
                             return {
                                 text: item.ResName,
