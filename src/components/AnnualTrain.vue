@@ -44,7 +44,7 @@
                 chartInstances.forEach(item => {
                     item.showLoading(loadingConfig)
                 });
-                this.$http.get(`/api/stat/areainfos?provinceId=1`).then((response) => {
+                this.$http.get(`/api/stat/lastyearcond?provinceId=1`).then((response) => {
                     if (response.data.returncode === 0) {
                         chartInstances.forEach(item => {
                             item.hideLoading();
