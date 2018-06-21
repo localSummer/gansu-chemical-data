@@ -66,7 +66,7 @@
                         this.activeDay = result.ActiveDay? result.ActiveDay: 0;
                         this.studyDays = result.StudyDays? result.StudyDays : 0;
                         this.subjectNum = result.SubjectNum? result.SubjectNum : 0;
-                        this.abilityIndex = result.AbilityIndex? result.AbilityIndex : 0;
+                        this.abilityIndex = result.AblityIndex? result.AblityIndex : 0;
                         annualStudent.radar[0].indicator = result.UserPortraits.map(item => {
                             return {
                                 text: item.ResName,
