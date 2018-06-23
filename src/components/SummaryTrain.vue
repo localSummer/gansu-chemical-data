@@ -13,7 +13,7 @@
                         <h4 v-text="tranTimes"></h4>
                     </Col>
                     <Col span="10">
-                        <div class="bg" v-if="isLoaded"></div>
+                        <img class="bg" src="../assets/imgs/loading.png" />
                         <div class="chart-one"></div>
                     </Col>
                 </Row>
@@ -26,7 +26,7 @@
                         <h4 v-text="userNum"></h4>
                     </Col>
                     <Col span="10">
-                        <div class="bg" v-if="isLoaded"></div>
+                        <img class="bg" src="../assets/imgs/loading.png" />
                         <div class="chart-two"></div>
                     </Col>
                 </Row>
@@ -41,7 +41,7 @@
                         <h4 v-text="learningMinute"></h4>
                     </Col>
                     <Col span="10">
-                        <div class="bg" v-if="isLoaded"></div>
+                        <img class="bg" src="../assets/imgs/loading.png" />
                         <div class="chart-three"></div>
                     </Col>
                 </Row>
@@ -54,7 +54,7 @@
                         <h4 v-text="userPassNum"></h4>
                     </Col>
                     <Col span="10">
-                        <div class="bg" v-if="isLoaded"></div>
+                        <img class="bg" src="../assets/imgs/loading.png" />
                         <div class="chart-four"></div>
                     </Col>
                 </Row>
@@ -211,7 +211,6 @@
             left: 0;
             bottom: 0;
             width: px2rem(98);
-            background: url("../assets/imgs/loading.png") center center no-repeat;
             animation:change 2s linear infinite;
         }
     }

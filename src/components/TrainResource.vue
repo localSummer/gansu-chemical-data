@@ -27,19 +27,22 @@
                     if (response.data.returncode === 0) {
                         chartInstance.hideLoading();
                         let result = response.data.result;
-                        let count = 0;
                         trainData.legend.data = result.map((item) => {
                             return item.ResName;
                         });
                         trainData.xAxis[0].data = result[0].ResYearList.map((item) => {
                             return item.LogDate;
                         });
-                        while (count < result.length) {
-                            trainData.series[count].data = result[count].ResYearList.map((item) => {
-                                return item.ResNum;
-                            });
-                            count++;
-                        }
+                        trainData.series = result.map((item) => {
+                            return {
+                                name: item.ResName,
+                                type: 'bar',
+                                barGap: 0,
+                                data: item.ResYearList.map((yearData) => {
+                                    return yearData.ResNum;
+                                })
+                            };
+                        });
                         chartInstance.setOption(trainData);
                     }
                 }).catch((err) => {
@@ -95,7 +98,7 @@
             .title-bar {
                 position: absolute;
                 top: 0;
-                right: px2rem(20);
+                right: px2rem(16);
                 width: 78%;
                 height: px2rem(13);
                 animation: pulse 1s linear infinite;

@@ -328,16 +328,19 @@ export const trainData = {
         {
             name: '技能训练',
             type: 'bar',
+            barGap: 0,
             data: [220, 182, 191, 234, 290]
         },
         {
             name: '实训软件',
             type: 'bar',
+            barGap: 0,
             data: [150, 232, 201, 154, 190]
         },
         {
             name: '硬件实训',
             type: 'bar',
+            barGap: 0,
             data: [98, 77, 101, 99, 40]
         },
         {
